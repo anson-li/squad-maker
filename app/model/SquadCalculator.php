@@ -14,9 +14,13 @@ class SquadCalculator {
     $playerCount = count($waitingList->players);
     $averageValues = $waitingList->getAverageValues();
 
+    $animalJson = file_get_contents('./animals.json');
+    $animalNames = json_decode($animalJson, 1);
+    $teamNames = array_rand($animalNames, $squadCount);
+
     $squads = [];
     for ($i = 0; $i < $squadCount; $i++) {
-      $squads[] = new Squad($averageValues);
+      $squads[] = new Squad($averageValues, $animalNames[$teamNames[$i]]);
     }
 
     # If the count of players is less than the count of squads, place a player in each available squad and return.

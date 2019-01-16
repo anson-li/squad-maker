@@ -2,11 +2,25 @@
 
 class Squad {
 
-    public $players, $average = null;
+    public $players, $average, $teamName, $teamColor = null;
 
-    function __construct(array $average) {
+    function __construct(array $average, string $teamName) {
         $this->players = [];
         $this->average = $average;
+        $this->teamName = $teamName;
+        $this->teamColor = $this->generateRandomTeamColor();
+    }
+
+    // We need to team color to be a sharp color - so we're forcing one primary color and two secondary (lighter) colors.
+    function generateRandomTeamColor()
+    {
+        $colors[] = rand(200, 255);
+        $colors[] = rand(120, 200);
+        $colors[] = rand(100, 180);
+        shuffle($colors);
+
+        # Reference: https://stackoverflow.com/a/32977705
+        return sprintf("#%02x%02x%02x", $colors[0], $colors[1], $colors[2]);
     }
     
     // Gets the 'best' average for the squad. If there are currently no members in the squad, that is just the calculated average from before. However, if there are members in the squad, the function calculates what member would be most suitable to 'balance out' the team.

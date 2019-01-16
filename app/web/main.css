@@ -1,0 +1,75 @@
+body {
+  color: #333;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+.btn-generate {
+  border-color: #5AC24B;
+  color: #5AC24B;
+}
+
+.btn-generate:hover {
+  background: #5AC24B;
+}
+
+.btn-reset {
+  border-color: #FF5252;
+  color: #FF5252;
+}
+
+.btn-reset:hover {
+  background: #FF5252;
+}
+
+.btn {
+  padding: 0.5em 2em 0.5em 2.2em;
+  -webkit-transition: color ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5em 2.2em 0.5em 2.2em;
+}
+
+.container-padding {
+  padding: 25px;
+}
+
+.accordion-toggle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #333;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.bg-pattern {
+  background-image: url('./pattern.svg');
+  background-repeat: repeat;
+  background-color: rgb(250, 250, 250);
+}
+
+/* Center table elements horizontally */
+table th.text-center, table td.text-center { 
+    text-align: center;
+}
+
+/* Creates responsive panel carets, thanks to @Tofanelli (https://codepen.io/tofanelli/pen/waadRY) */
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}

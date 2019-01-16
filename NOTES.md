@@ -5,6 +5,8 @@
 * Player quantity beats the quality of each individual player. So, if there are only three users and they need to be split into three teams, they'll be split first - even if there are large skill differences.
 * Squads attempt to include as many members as possible - eg. if there are 40 players and 3 squads, each squad should contain 13 players (with 1 left on the waiting list).
 * If there are less players than squads, then either return an error or fit as many players as you can for each squad (eg. 3 squads, 2 people = 1 person per squad, twice).
+* Limitations for squad input - validate for integer, greater than or equal to 2 (you can't have only one squad in a tournament... can you?) and less than or equal to the number of players available.
+* Squads need cool names and team colors! You don't play a tourney as Squad 1... 
 
 ## Design Process
 
@@ -22,7 +24,7 @@
 
 * Finding the average of any value is simply finding the maximum of any value and dividing it by count. So we can calculate up to maximum (like most partition/packing problems).
 * We have a 'variance' we need to identify. Whether or not the subsets are within an acceptable range is also important! 
-  * Options: continue to iterate, increasing the variance measurement each time.
+  * Options: continue to iterate, increasing the variance measurement each time, or continue to a set limit. But we /can't/ set an arbitrary limit because there's no situation where we're allowed to return false here! 
 
 ## Algorithm Implementation
 
@@ -38,7 +40,17 @@ A possible implementation would be as follows:
       a. Continue to increase 'variance' count, until a potential match is made.  
         - Limit cannot be set to a maximum as we can't return false unless an error has occured.
 
+## Creating the UI
+
+- Used Sketch, Pexels & Google Type Foundry
+
 ## References
 
 * https://www8.cs.umu.se/kurser/TDBA77/VT06/algorithms/BOOK/BOOK2/NODE45.HTM
 * https://arxiv.org/pdf/cond-mat/0310317.pdf
+
+## Code References
+
+* https://codepen.io/tofanelli/pen/waadRY (panel accordion logic using carets)
+* https://github.com/boennemann/animals/blob/master/words.json (list of animals)
+* https://stackoverflow.com/a/32977705 (convert rgb values to hex values in PHP)

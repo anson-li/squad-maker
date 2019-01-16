@@ -16,6 +16,7 @@
     $json = file_get_contents('./players.json');
     $decodedData = json_decode($json, 1);
     $playerData = $decodedData['players'];
+    $squads = [];
 
     // Import players to their appropriate model
     foreach ($playerData as $data) {
@@ -25,13 +26,23 @@
     $_SESSION['players'] = $waitingList;
   // }
 
-  if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['action'])) {
-    if ($_POST['action'] === 'Sort Squads') {
+  if (!empty($_POST['numSquads'])) {
+    $squadCount = $_POST['numSquads'];
+    if (!is_numeric($squadCount)) {
+      $error = 'Non numeric value added, please try again!';
+    } else if ($squadCount < 2) {
+      $error = 'Squad count submitted is too low, please try again!';
+    } else if ($squadCount > count($waitingList->players)) {
+      $error = 'Squad count is greater than the number of players actually available!';
+    }
+  }
+
+  if (!isset($error) && isset($squadCount) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['action'])) {
+    if ($_POST['action'] === 'Generate') {
       // Add validation
-      $squadCount = $_POST['numSquads'];
       $squadCalculator = new SquadCalculator();
       $squads = $squadCalculator->calculate($waitingList, $squadCount);
-    } else if ($_POST['action'] === 'Clear') {
+    } else if ($_POST['action'] === 'Reset') {
       // Add clear process
     }
   }
