@@ -8,6 +8,7 @@
 * Limitations for squad input - validate for integer, greater than or equal to 2 (you can't have only one squad in a tournament... can you?) and less than or equal to the number of players available.
 * Squads need cool names and team colors! You don't play a tourney as Squad 1... 
 * Waiting list is less important (hidden by default) but it should be easy to tell how many players are waiting at a glance.
+* The waiting list always has at least one element in it. 
 
 ## Design Process
 

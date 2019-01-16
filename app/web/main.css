@@ -22,6 +22,7 @@ h1 {
  * as well as a transitional effect from hover.
  */
 .btn {
+  background-color: #fff;
   padding: 0.5em 2em 0.5em 2.2em;
   -webkit-transition: color ease 0.3s;
   -moz-transition: all ease 0.3s;
