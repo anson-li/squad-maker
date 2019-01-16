@@ -46,7 +46,7 @@
       $success = 'Generated ' . $squadCount . ' squads.';
     } else if ($_POST['action'] === 'Reset') {
       # No processing is required as not running calculate() essentially guarantees the reset.
-      $success = 'Successfully reset the squad pools.';
+      $success = 'Successfully reset squad pools.';
     }
   }
 
