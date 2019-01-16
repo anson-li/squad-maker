@@ -15,12 +15,17 @@
 </head>
 
 <body class="bg-pattern">
-  <div class='container col-md-3'>
+  <div class='container col-md-3 container-padding'>
     <h1>Squad Maker</h1>
     <p>Let’s make a tournament!<br>Give me your squad count, and I’ll give you the perfect squad composition for any situation.</p>
     <?php if (isset($error)): ?>
       <div class="alert alert-warning" role="alert">
         <?php print_r($error); ?>
+      </div>
+    <?php endif; ?>
+    <?php if (isset($success)): ?>
+      <div class="alert alert-success" role="alert">
+        <?php print_r($success); ?>
       </div>
     <?php endif; ?>
     <form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
@@ -50,11 +55,11 @@
           </tr>
           <?php foreach ($waitingList->players as $player): ?>
             <tr>
-              <td class='text-center'><?php print_r($player->firstName) ?></td>
-              <td class='text-center'><?php print_r($player->lastName) ?></td>
-              <td class='text-center'><?php print_r($player->shooting) ?></td>
-              <td class='text-center'><?php print_r($player->skating) ?></td>
-              <td class='text-center'><?php print_r($player->checking) ?></td>
+              <td class='text-center'><?php print_r($player->firstName); ?></td>
+              <td class='text-center'><?php print_r($player->lastName); ?></td>
+              <td class='text-center'><?php print_r($player->shooting); ?></td>
+              <td class='text-center'><?php print_r($player->skating); ?></td>
+              <td class='text-center'><?php print_r($player->checking); ?></td>
             </tr>
           <?php endforeach; ?>
         </table>
@@ -64,7 +69,7 @@
     <?php foreach ($squads as $key => $squad): ?>
     <div class="panel panel-default">
       <div class="panel-heading" style="background-color: <?php print_r($squad->teamColor); ?>">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php print_r($key) ?>"><?php print_r($squad->teamName); ?> Squad</a>
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php print_r($key); ?>"><?php print_r($squad->teamName); ?> Squad</a>
       </div>
       <div id="collapse<?php print_r($key) ?>" class="panel-collapse collapse in">
         <table class='table'>
@@ -77,11 +82,11 @@
           </tr>
           <?php foreach ($squad->players as $player): ?>
             <tr>
-              <td class='text-center'><?php print_r($player->firstName) ?></td>
-              <td class='text-center'><?php print_r($player->lastName) ?></td>
-              <td class='text-center'><?php print_r($player->shooting) ?></td>
-              <td class='text-center'><?php print_r($player->skating) ?></td>
-              <td class='text-center'><?php print_r($player->checking) ?></td>
+              <td class='text-center'><?php print_r($player->firstName); ?></td>
+              <td class='text-center'><?php print_r($player->lastName); ?></td>
+              <td class='text-center'><?php print_r($player->shooting); ?></td>
+              <td class='text-center'><?php print_r($player->skating); ?></td>
+              <td class='text-center'><?php print_r($player->checking); ?></td>
             </tr>
           <?php endforeach; ?>
           <tr>
@@ -96,11 +101,7 @@
     </div>
   <?php endforeach; ?>
   </div>
-
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

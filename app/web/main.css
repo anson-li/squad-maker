@@ -1,3 +1,7 @@
+/**
+ * Default template styling. Overloading native bootstrap styles.
+ */
+
 body {
   color: #333;
 }
@@ -6,6 +10,28 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+/* Added additional padding to the main form text to make it fit easier on the page */
+.container-padding {
+  padding: 25px;
+}
+
+/**
+ * Button CSS. Includes stylings for both the 'Generate' and 'Reset' buttons, 
+ * as well as a transitional effect from hover.
+ */
+.btn {
+  padding: 0.5em 2em 0.5em 2.2em;
+  -webkit-transition: color ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5em 2.2em 0.5em 2.2em;
 }
 
 .btn-generate {
@@ -26,23 +52,7 @@ h1 {
   background: #FF5252;
 }
 
-.btn {
-  padding: 0.5em 2em 0.5em 2.2em;
-  -webkit-transition: color ease 0.3s;
-  -moz-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-}
-
-.btn:hover {
-  text-decoration: none;
-  color: #fff;
-  padding: 0.5em 2.2em 0.5em 2.2em;
-}
-
-.container-padding {
-  padding: 25px;
-}
-
+/* Panel header CSS */
 .accordion-toggle {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -51,6 +61,7 @@ h1 {
   text-transform: uppercase;
 }
 
+/* Background pattern, uses a pattern created from Flaticons */
 .bg-pattern {
   background-image: url('./pattern.svg');
   background-repeat: repeat;
