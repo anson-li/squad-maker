@@ -7,6 +7,7 @@
 * If there are less players than squads, then either return an error or fit as many players as you can for each squad (eg. 3 squads, 2 people = 1 person per squad, twice).
 * Limitations for squad input - validate for integer, greater than or equal to 2 (you can't have only one squad in a tournament... can you?) and less than or equal to the number of players available.
 * Squads need cool names and team colors! You don't play a tourney as Squad 1... 
+* Waiting list is less important (hidden by default) but it should be easy to tell how many players are waiting at a glance.
 
 ## Design Process
 
@@ -32,10 +33,11 @@
 
 A possible implementation would be as follows:
 
-    A. If the count of players is less than the count of squads, place a player in each available squad and return.
+    Validator: If the count of players is less than the count of squads, place a player in each available squad and return.
 
     1. Given the number of squads, calculate the number of players that have to be attached to each squad, as well as the maximum/average value for each of the three skills (skating, shooting, checking).
     2. Sort the pool of players from least to most, calculating the average of all three components.
+      a. We're calculating from least to most in order to put players of 'less impact' into teams first. If players with the most impact enter first, it could result in more uneven teams.
     3. For each, take the pool of players and insert them into each squad, attempting to minimize the amount of impact applied to each one. 
       a. Continue to increase 'variance' count, until a potential match is made.  
         - Limit cannot be set to a maximum as we can't return false unless an error has occured.
@@ -43,6 +45,7 @@ A possible implementation would be as follows:
 ## Creating the UI
 
 - Used Sketch, Pexels & Google Type Foundry
+- Used Flaticons for the background (https://pattern.flaticon.com/)
 
 ## References
 
