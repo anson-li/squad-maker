@@ -1,0 +1,24 @@
+{
+players: [
+  '{{repeat(40)}}',
+  {
+    _id: '{{objectId()}}',
+    firstName: '{{firstName()}}',
+    lastName: '{{surname()}}',
+    skills: [
+      {
+        type: 'Shooting',
+        rating: '{{integer(20, 100)}}'
+      },
+      {
+        type: 'Skating',
+        rating: '{{integer(20, 100)}}'
+      },
+      {
+        type: 'Checking',
+        rating: '{{integer(20, 100)}}'
+      }
+    ]
+  }
+]
+}
