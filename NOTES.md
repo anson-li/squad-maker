@@ -9,6 +9,7 @@
 * Squads need cool names and team colors! You don't play a tourney as Squad 1... 
 * Waiting list is less important (hidden by default) but it should be easy to tell how many players are waiting at a glance.
 * The waiting list always has at least one element in it. 
+* The page should be easy to print, as most tournaments need printed copies of the page to identify teams.
 
 ## Design Process
 

@@ -38,7 +38,7 @@
     <br><br>
     </form>
   </div> 
-  <div class='container col-md-9 container-padding'>
+  <div class='container-fluid col-md-9 container-padding'>
   <?php if (!empty($waitingList->players)): ?>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -72,31 +72,33 @@
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php print_r($key); ?>"><?php print_r($squad->teamName); ?> Squad</a>
       </div>
       <div id="collapse<?php print_r($key) ?>" class="panel-collapse collapse in">
-        <table class='table'>
-          <tr>
-            <th class='text-center'>First Name</th>
-            <th class='text-center'>Last Name</th>
-            <th class='text-center'>Shooting</th>
-            <th class='text-center'>Skating</th>
-            <th class='text-center'>Checking</th>
-          </tr>
-          <?php foreach ($squad->players as $player): ?>
+        <div class="panel panel-body">
+          <table class='table'>
             <tr>
-              <td class='text-center'><?php print_r($player->firstName); ?></td>
-              <td class='text-center'><?php print_r($player->lastName); ?></td>
-              <td class='text-center'><?php print_r($player->shooting); ?></td>
-              <td class='text-center'><?php print_r($player->skating); ?></td>
-              <td class='text-center'><?php print_r($player->checking); ?></td>
+              <th class='text-center'>First Name</th>
+              <th class='text-center'>Last Name</th>
+              <th class='text-center'>Shooting</th>
+              <th class='text-center'>Skating</th>
+              <th class='text-center'>Checking</th>
             </tr>
-          <?php endforeach; ?>
-          <tr>
-            <td class='text-center'><b>Average</b></td>
-            <td></td>
-            <td class='text-center'><b><?php print_r($squad->getPlayerAverages()['shooting']); ?></b></td>
-            <td class='text-center'><b><?php print_r($squad->getPlayerAverages()['skating']); ?></b></td>
-            <td class='text-center'><b><?php print_r($squad->getPlayerAverages()['checking']); ?></b></td>
-          </tr>
-        </table>
+            <?php foreach ($squad->players as $player): ?>
+              <tr>
+                <td class='text-center'><?php print_r($player->firstName); ?></td>
+                <td class='text-center'><?php print_r($player->lastName); ?></td>
+                <td class='text-center'><?php print_r($player->shooting); ?></td>
+                <td class='text-center'><?php print_r($player->skating); ?></td>
+                <td class='text-center'><?php print_r($player->checking); ?></td>
+              </tr>
+            <?php endforeach; ?>
+            <tr>
+              <td class="text-center"><b>Average</b></td>
+              <td></td>
+              <td class="text-center"><b><?php print_r($squad->getPlayerAverages()['shooting']); ?></b></td>
+              <td class="text-center"><b><?php print_r($squad->getPlayerAverages()['skating']); ?></b></td>
+              <td class="text-center"><b><?php print_r($squad->getPlayerAverages()['checking']); ?></b></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   <?php endforeach; ?>

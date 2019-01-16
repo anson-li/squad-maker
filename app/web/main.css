@@ -16,6 +16,11 @@ h1 {
   padding: 25px;
 }
 
+/* Overload panel to allow for autoscroll for wide tables */
+.panel-body {
+  overflow-x: scroll;
+}
+
 /**
  * Button CSS. Includes stylings for both the 'Generate' and 'Reset' buttons, 
  * as well as a transitional effect from hover.
