@@ -22,7 +22,27 @@
     <input type='submit' name='action' value='Clear' />  
   <br><br>
   </form> 
-  <hr> 
+  <hr>
+  <h2>Waiting List</h2>
+  <table class='table'>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Shooting</th>
+      <th>Skating</th>
+      <th>Checking</th>
+    </tr>
+    <?php foreach ($waitingList->players as $player) { ?>
+      <tr>
+        <td><?php print_r($player->firstName) ?></td>
+        <td><?php print_r($player->lastName) ?></td>
+        <td><?php print_r($player->shooting) ?></td>
+        <td><?php print_r($player->skating) ?></td>
+        <td><?php print_r($player->checking) ?></td>
+      </tr>
+    <?php } ?>
+  </table>
+  <?php if (!empty($squads)) { ?>
   <?php foreach ($squads as $key => $squad) { ?>
   <h2>Squad <?php print_r($key + 1) ?></h2>
   <table class='table'>
@@ -50,6 +70,7 @@
       <td><?php print_r($squad->getFinalAverages()['checking']); ?></td>
     </tr>
   </table>
+  <?php } ?>
   <?php } ?>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
