@@ -14,6 +14,8 @@
 
 <body>
   <h1>Hockey Squad Calculator</h1>
+  <?php foreach ($squads as $key => $squad) { ?>
+  <h2>Squad <?php print_r($key) ?></h2>
   <table>
     <tr>
       <th>First Name</th>
@@ -22,7 +24,7 @@
       <th>Skating</th>
       <th>Checking</th>
     </tr>
-    <?php foreach ($players as $player) { ?>
+    <?php foreach ($squad->players as $player) { ?>
       <tr>
         <td><?php print_r($player->firstName) ?></td>
         <td><?php print_r($player->lastName) ?></td>
@@ -31,7 +33,15 @@
         <td><?php print_r($player->checking) ?></td>
       </tr>
     <?php } ?>
+    <tr>
+      <td>Average:</td>
+      <td></td>
+      <td><?php print_r($squad->getFinalAverages()['shooting']); ?></td>
+      <td><?php print_r($squad->getFinalAverages()['skating']); ?></td>
+      <td><?php print_r($squad->getFinalAverages()['checking']); ?></td>
+    </tr>
   </table>
+  <?php } ?>
 
 
 </body>

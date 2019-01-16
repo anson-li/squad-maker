@@ -1,6 +1,7 @@
 <?php
 
   require_once('model/Player.php');
+  require_once('model/SquadCalculator.php');
 
   ini_set('display_errors', 1);
   session_start();
@@ -8,7 +9,6 @@
   $players = [];
   if (isset($_SESSION['players'])) {
     $players = $_SESSION['players'];
-    $txt = 'you have reached this';
   } else {
     // TODO: Replace with JSONProcessor
     // Decoding and interpreting JSON
@@ -22,12 +22,10 @@
       $players[] = $player;
     }
     $_SESSION['players'] = $players;
-    $txt = 'this is new';
   }
 
   // Stub out the squad length
-
-
-  
+  $squadCalculator = new SquadCalculator();
+  $squads = $squadCalculator->calculate($players, 4);
 
   include_once('view/main.php');
