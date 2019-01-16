@@ -7,16 +7,25 @@
   <title>The HTML5 Herald</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
 
 <body>
   <h1>Hockey Squad Calculator</h1>
+  <br>
+  <form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+    Number of Squads: <input type='number' name='numSquads' value='2'>
+    <br><br>
+    <input type='submit' name='action' value='Sort Squads' />  
+    <br><br>
+    <input type='submit' name='action' value='Clear' />  
+  <br><br>
+  </form> 
+  <hr> 
   <?php foreach ($squads as $key => $squad) { ?>
-  <h2>Squad <?php print_r($key) ?></h2>
-  <table>
+  <h2>Squad <?php print_r($key + 1) ?></h2>
+  <table class='table'>
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
@@ -43,6 +52,7 @@
   </table>
   <?php } ?>
 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 </html>

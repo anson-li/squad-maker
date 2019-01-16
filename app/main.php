@@ -24,8 +24,15 @@
     $_SESSION['players'] = $players;
   }
 
-  // Stub out the squad length
-  $squadCalculator = new SquadCalculator();
-  $squads = $squadCalculator->calculate($players, 4);
+  if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST['action'])) {
+    if ($_POST['action'] === 'Sort Squads') {
+      // Add validation
+      $squadCount = $_POST['numSquads'];
+      $squadCalculator = new SquadCalculator();
+      $squads = $squadCalculator->calculate($players, $squadCount);
+    } else if ($_POST['action'] === 'Clear') {
+      // Add clear process
+    }
+  }
 
   include_once('view/main.php');
