@@ -42,7 +42,7 @@
   <?php if (!empty($waitingList->players)): ?>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingList">Waiting List (<?php print_r(count($waitingList->players)); ?> player(s))</a>
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingList">Waiting List (<?php print_r(count($waitingList->players)); ?> players)</a>
       </div>
       <div id="collapseWaitingList" class="panel-collapse collapse">
         <table class='table'>
