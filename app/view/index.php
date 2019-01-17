@@ -44,25 +44,27 @@
       <div class="panel-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingList">Waiting List (<?php print_r($waitingPlayerCount); ?>)</a>
       </div>
-      <div id="collapseWaitingList" class="panel-collapse collapse">
-        <table class='table'>
-          <tr>
-            <th class='text-center'>First Name</th>
-            <th class='text-center'>Last Name</th>
-            <th class='text-center'>Shooting</th>
-            <th class='text-center'>Skating</th>
-            <th class='text-center'>Checking</th>
-          </tr>
-          <?php foreach ($waitingList->players as $player): ?>
+      <div id="collapseWaitingList" class="panel-collapse collapse <?php print_r($expandedWaitingList); ?>">
+        <div class="panel panel-body">
+          <table class='table'>
             <tr>
-              <td class='text-center'><?php print_r($player->firstName); ?></td>
-              <td class='text-center'><?php print_r($player->lastName); ?></td>
-              <td class='text-center'><?php print_r($player->shooting); ?></td>
-              <td class='text-center'><?php print_r($player->skating); ?></td>
-              <td class='text-center'><?php print_r($player->checking); ?></td>
+              <th class='text-center'>First Name</th>
+              <th class='text-center'>Last Name</th>
+              <th class='text-center'>Shooting</th>
+              <th class='text-center'>Skating</th>
+              <th class='text-center'>Checking</th>
             </tr>
-          <?php endforeach; ?>
-        </table>
+            <?php foreach ($waitingList->players as $player): ?>
+              <tr>
+                <td class='text-center'><?php print_r($player->firstName); ?></td>
+                <td class='text-center'><?php print_r($player->lastName); ?></td>
+                <td class='text-center'><?php print_r($player->shooting); ?></td>
+                <td class='text-center'><?php print_r($player->skating); ?></td>
+                <td class='text-center'><?php print_r($player->checking); ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </div>
       </div>
     </div>
     <?php endif; ?>

@@ -57,4 +57,11 @@
     $waitingPlayerCount = count($waitingList->players) . ' Players';
   }
 
+  # Expands the waiting list if there are no squads present
+  if (count($squads) === 0) {
+    $expandedWaitingList = 'in';
+  } else {
+    $expandedWaitingList = '';
+  }
+
   include_once('view/index.php');
