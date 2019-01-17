@@ -42,7 +42,7 @@
     if (($squadCount) && ($_POST['action'] === 'Generate')) {
       $squadCalculator = new SquadCalculator();
       $squads = $squadCalculator->calculate($waitingList, $squadCount);
-      $success = 'Generated ' . $squadCount . ' squads.';
+      $success = 'Generated ' . count($squads) . ' squads.';
     } else if ($_POST['action'] === 'Reset') {
       # No processing is required as not running calculate() essentially guarantees the reset
       $success = 'Successfully reset squad pools.';
