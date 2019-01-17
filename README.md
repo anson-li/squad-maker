@@ -1,26 +1,39 @@
 # Squad-Maker
 
-Squad maker is an application that creates equally matched hockey squads from a collection of players. It was developed in pure PHP/HTML/CSS, and uses Bootstrap/jQuery. 
+Squad maker is an application that creates equally matched hockey squads from a collection of players. It was developed in PHP 7/HTML/CSS, and uses Bootstrap/jQuery. It was also developed with the help of tools including Sketch, Transmit, Codekit, WAMP, and Git.
 
-# Live Demo
+## Live Demo
 
 Squadmaker is currently hosted on [http://squadmaker.ansonli.ca](http://squadmaker.ansonli.ca). Check it out!
 
-# Problem
+## Problem
 
 To see the problem material, please review the PROBLEM.md file.
 
-# Assumptions
+## Assumptions
 
 To see the assumption list, please review the NOTES.md file.
 
-# Design
+## How to read the code?
+
+Squad-maker is broken down into the following components:
+
+* additional: contains additional files used for squad-maker's development, which includes the design files in .png and in .sketch.
+* app: contains the actual application. Broken down into the following components:
+  * json: json files for both the animals (for team names) and the players.
+  * model: contains the models used in the application - for example, the player and the squad classes.
+  * view: contains the view, or the template, used in this application.
+  * web: contains the .css file used, as well as the pattern SVG used for the background.
+  * index.php: the point-of-entry page for the application. Also serves as the controller for this application.
+* player-generator: contains the generator code passed in the original problem.
+
+## Design
 
 Squad Maker is designed to find an adequate solution to the problem: given N users with three different attributes, fit them into bins M so that all three different attributes are as balanced as possible, and all bins contain equal number of users.
 
 Squad Maker is designed with the following input limitations:
 
-- The input number of squads must be greater than 1 (squads will be pitted against each other so no need for 1 supergroup) and less than or equal to the number of players.
+- The input number of squads must be a positive integer, and it must be greater than 1 (squads will be pitted against each other so no need for 1 supergroup) and less than or equal to the number of players.
 
 Additionally, Squad Maker employs the following algorithm to setup squads:
 

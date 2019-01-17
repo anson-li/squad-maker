@@ -45,9 +45,16 @@
       $squads = $squadCalculator->calculate($waitingList, $squadCount);
       $success = 'Generated ' . $squadCount . ' squads.';
     } else if ($_POST['action'] === 'Reset') {
-      # No processing is required as not running calculate() essentially guarantees the reset.
+      # No processing is required as not running calculate() essentially guarantees the reset
       $success = 'Successfully reset squad pools.';
     }
+  }
+
+  # Generate text to represent players left in waiting list
+  if (count($waitingList->players) === 1) {
+    $waitingPlayerCount = '1 Player';
+  } else {
+    $waitingPlayerCount = count($waitingList->players) . ' Players';
   }
 
   include_once('view/index.php');
