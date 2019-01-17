@@ -14,7 +14,7 @@ class Squad {
    * @param array  $idealAverage  The ideal average skillset to make the squads with.
    * @param string $teamName      The squad name.
    */
-  function __construct(array $idealAverage, string $teamName) {
+  public function __construct(array $idealAverage, string $teamName) {
     $this->players = [];
     $this->idealAverage = $idealAverage;
     $this->teamName = $teamName;
@@ -26,7 +26,7 @@ class Squad {
    * We need team color to be a bright color, so we're forcing one primary color and two secondary (lighter) colors.
    * @return string Color in hexadecimal, eg. #ff0000
    */
-  function generateRandomTeamColor() : string
+  private function generateRandomTeamColor() : string
   {
     $colors[] = rand(200, 255);
     $colors[] = rand(120, 200);
@@ -39,7 +39,7 @@ class Squad {
    * Adds a player to the squad's roster.
    * @param Player $player The player to add to the squad.
    */
-  function addPlayer(Player $player) {
+  public function addPlayer(Player $player) {
     $this->players[] = $player;
   }
 
@@ -52,7 +52,7 @@ class Squad {
    * @param   string  $param The parameter to find the average for.
    * @return  int            The ideal value for a player skill to be in that specific category.
    */
-  function getIdealAverage(string $param) : int 
+  public function getIdealAverage(string $param) : int 
   {
     // If no players are in the squad, return the ideal average.
     if (count($this->players) === 0) {
@@ -74,7 +74,7 @@ class Squad {
    * Get the final averages of the squad, using only player skill.
    * @return array An array containing averages for all three player skills.
    */
-  function getPlayerAverages() : array
+  public function getPlayerAverages() : array
   {
     $average['shooting'] = 0;
     $average['skating'] = 0;

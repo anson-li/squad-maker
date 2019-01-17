@@ -12,7 +12,7 @@ class Player {
    * Converts an object (structured in decoded JSON format) into a Player object.
    * @param array $object Parsed JSON object to pull values from.
    */
-  function __construct(array $object) {
+  public function __construct(array $object) {
     $this->id = $object['_id'];
     $this->firstName = $object['firstName'];
     $this->lastName = $object['lastName'];

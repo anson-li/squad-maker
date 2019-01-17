@@ -7,7 +7,7 @@ require_once('WaitingList.php');
  */
 class SquadValidator {
 
-  function __construct() {}
+  public function __construct() {}
 
   /**
    * Checks the number of squads requested by several metrics: 
@@ -18,7 +18,7 @@ class SquadValidator {
    * @param  WaitingList $waitingList Waiting list, containing the total number of players to be added.
    * @return string|null              Error response if validator fails, or null if no issues.
    */
-  function validate(string $squadCount, WaitingList $waitingList)
+  public function validate(string $squadCount, WaitingList $waitingList)
   {
     if (!is_numeric($squadCount)) {
       return 'Non numeric value added, please try again!';

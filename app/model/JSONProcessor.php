@@ -6,14 +6,14 @@
  */
 class JSONProcessor {
 
-  function __construct() {}
+  public function __construct() {}
 
   /**
    * Processes and validates JSON.
    * @param  string $jsonPath Path to JSON file
    * @return array            Array of cleaned JSON entities, or an empty array if an error occured while processing.
    */
-  function processJson(string $jsonPath) : array 
+  public function processJson(string $jsonPath) : array 
   {
     try {
       $json = file_get_contents($jsonPath);

@@ -11,7 +11,7 @@ class WaitingList {
   /**
    * Instantiates an empty waiting list with no players.
    */
-  function __construct() {
+  public function __construct() {
     $this->players = [];
   }
 
@@ -19,7 +19,7 @@ class WaitingList {
    * Adds a player to the waiting list.
    * @param Player $player
    */
-  function addPlayer(Player $player) {
+  public function addPlayer(Player $player) {
     $this->players[] = $player;
   }
 
@@ -28,7 +28,7 @@ class WaitingList {
    * Used when moving a player from waiting list to squad.
    * @return Player
    */
-  function popPlayer() {
+  public function popPlayer() {
     return array_pop($this->players);
   }
 
@@ -37,7 +37,7 @@ class WaitingList {
    * @param  int    $id   The ID to search for.
    * @return Player|bool  The first player that matches the ID, or false if none are found.
    */
-  function getPlayer(int $id) {
+  public function getPlayer(int $id) {
     foreach ($players as $player) {
       if ($player->id === $id) {
         return $player;
@@ -51,7 +51,7 @@ class WaitingList {
    * Used for ensuring squad skill averages are about the same as the ideal skill averages.
    * @return array An array containing the average skill values in the waiting list.
    */
-  function getAverageValues() : array
+  public function getAverageValues() : array
   {
     $playerCount = count($this->players);
     $average = [];

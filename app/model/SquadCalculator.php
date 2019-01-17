@@ -11,7 +11,7 @@ require_once('JSONProcessor.php');
  */
 class SquadCalculator {
 
-  function __construct() {}
+  public function __construct() {}
 
   /**
    * Given a waitinglist full of players, find the best setup of squads so 
@@ -21,7 +21,7 @@ class SquadCalculator {
    * @param  int         $squadCount  The number of squads to fill.
    * @return array                    The array of squads with completed player lists.
    */
-  function calculate(WaitingList $waitingList, int $squadCount) : array
+  public function calculate(WaitingList $waitingList, int $squadCount) : array
   {
     # Get the number of players to use, and the 'ideal average' of the squads
     $playerCount = count($waitingList->players);
@@ -74,7 +74,7 @@ class SquadCalculator {
    * @param  array       $averages The averages for that squad. Passing it through means no recalculations.
    * @return Player                The player object to add to that squad.
    */
-  function getBestMatchForSquad(Squad $squad, array $players, int $variance = 0, array $averages = []) : Player
+  private function getBestMatchForSquad(Squad $squad, array $players, int $variance = 0, array $averages = []) : Player
   {
     # Get the ideal averages first to calculate variance from
     if (empty($averages)) {
@@ -102,7 +102,7 @@ class SquadCalculator {
    * @param  array  $players Array of players to search from.
    * @return array           Array of players with the needle removed.
    */
-  function removePlayerByID(Player $needle, array $players) : array
+  private function removePlayerByID(Player $needle, array $players) : array
   {
     foreach ($players as $key => $player) {
       if ($player->id === $needle->id) {
@@ -133,7 +133,7 @@ class SquadCalculator {
    * @param  int    $squadCount  The number of squads to add to.
    * @return int                 The ideal number of players per squad.
    */
-  function getPlayerCountPerSquad(int $playerCount, int $squadCount) : int 
+  private function getPlayerCountPerSquad(int $playerCount, int $squadCount) : int 
   {
     return (int) floor($playerCount / $squadCount);
   }
