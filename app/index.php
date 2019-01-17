@@ -50,14 +50,14 @@
     }
   }
 
-  # Generate text to represent players left in waiting list
+  # Generate text to represent number of players left in waiting list
   if (count($waitingList->players) === 1) {
     $waitingPlayerCount = '1 Player';
   } else {
     $waitingPlayerCount = count($waitingList->players) . ' Players';
   }
 
-  # Expands the waiting list if there are no squads present
+  # Expands the waiting list UI if there are no squads present
   if (count($squads) === 0) {
     $expandedWaitingList = 'in';
   } else {

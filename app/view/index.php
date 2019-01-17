@@ -3,17 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>Squad Maker</title>
   <meta name='description' content='Generate any squad for your tournament!'>
   <meta name='author' content='Anson Li'>
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
   <link href="web/main.css" rel="stylesheet">
 </head>
-
 <body class="bg-pattern">
   <div class='container col-md-3 container-padding'>
     <h1>Squad Maker</h1>

@@ -107,9 +107,9 @@ class SquadCalculator {
   /**
    * Used by usort to compare items according to the sum value of all three components.
    * Results in ascending array.
-   * @param  Player $a Comparator player A.
-   * @param  Player $b Comparator player B.
-   * @return int       Response used for usort (either -1, 0, or 1).
+   * @param  Player   $a    Comparator player A.
+   * @param  Player   $b    Comparator player B.
+   * @return int            Response used for usort (either -1, 0, or 1).
    */
   private static function playerComparison(Player $a, Player $b) : int 
   {

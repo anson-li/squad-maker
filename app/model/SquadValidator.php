@@ -16,7 +16,7 @@ class SquadValidator {
    * and whether or not there's more squads than players.
    * @param  string      $squadCount  Squads requested, in string since it's parsed from form data.
    * @param  WaitingList $waitingList Waiting list, containing the total number of players to be added.
-   * @return string|null              Error response if validator fails.
+   * @return string|null              Error response if validator fails, or null if no issues.
    */
   function validate(string $squadCount, WaitingList $waitingList)
   {

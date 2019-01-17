@@ -26,7 +26,7 @@ class WaitingList {
   /**
    * Removes player from the waiting list.
    * Used when moving a player from waiting list to squad.
-   * @return [type] [description]
+   * @return Player
    */
   function popPlayer() {
     return array_pop($this->players);

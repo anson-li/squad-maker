@@ -12,7 +12,7 @@ class Squad {
     /**
      * Generates an empty Squad object, to fill with players.
      * @param array  $idealAverage  The ideal average skillset to make the squads with.
-     * @param string $teamName The squad name.
+     * @param string $teamName      The squad name.
      */
     function __construct(array $idealAverage, string $teamName) {
         $this->players = [];
@@ -44,13 +44,13 @@ class Squad {
     }
 
     /** 
-     * Gets the 'best' average for the squad. 
+     * Gets the 'best' average for the squad for a specific skill (shooting, skating, or checking). 
      * If there are currently no members in the squad, that is just the calculated average from before. 
      * However, if there are members in the squad, the function calculates what member 
      * would be most suitable to 'balance out' the team. Eg. If the squad has a higher amount of 'shooting'
      * skill, find a team member who is weaker in 'shooting'.
-     * @param string $param The parameter to find the average for.
-     * @return int The ideal value for a player skill to be in that specific category.
+     * @param   string  $param The parameter to find the average for.
+     * @return  int            The ideal value for a player skill to be in that specific category.
      */
     function getIdealAverage(string $param) : int 
     {

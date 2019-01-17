@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Hockey player object, containing all useful descriptions (eg. name),
+ * Hockey player object, containing all useful descriptions (eg. name, id),
  * as well as quantitative details used for squad calculations.
  */
 class Player {
@@ -9,7 +9,7 @@ class Player {
     public $id, $firstName, $lastName, $shooting, $skating, $checking = null;
 
     /**
-     * Converts an object (structured in JSON-esque format) into a Player object.
+     * Converts an object (structured in decoded JSON format) into a Player object.
      * @param array $object Parsed JSON object to pull values from.
      */
     function __construct(array $object) {
