@@ -46,8 +46,8 @@ A possible implementation would be as follows:
 
 ## Creating the UI
 
-- Used Sketch, Pexels & Google Type Foundry
-- Used Flaticons for the background (https://pattern.flaticon.com/)
+* Used Sketch, Pexels & Google Type Foundry
+* Used Flaticons for the background (https://pattern.flaticon.com/)
 
 ## References
 
