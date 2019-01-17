@@ -29,13 +29,13 @@ class SquadCalculator {
 
     # Generate the squad names
     $JSONProcessor = new JSONProcessor();
-    $animalNames = $JSONProcessor->processJson('./json/animals.json');
-    $teamNames = array_rand($animalNames, $squadCount);
+    $teamNames = $JSONProcessor->processJson('./json/animals.json');
+    shuffle($teamNames);
 
     # Generate all squads (replete with team colors and team names)
     $squads = [];
     for ($i = 0; $i < $squadCount; $i++) {
-      $squads[] = new Squad($idealAverages, $animalNames[$teamNames[$i]]);
+      $squads[] = new Squad($idealAverages, $teamNames[$i]);
     }
 
     # If the count of players is less than the count of squads, place a player in each available squad and return.
@@ -71,21 +71,29 @@ class SquadCalculator {
    * @param  Squad       $squad    Squad to add a player to.
    * @param  array       $players  An array of players to select from.
    * @param  int|integer $variance The applicable variance for the 'ideal value' for the attribute.
+   * @param  array       $averages The averages for that squad. Passing it through means no recalculations.
    * @return Player                The player object to add to that squad.
    */
-  function getBestMatchForSquad(Squad $squad, array $players, int $variance = 0) : Player
+  function getBestMatchForSquad(Squad $squad, array $players, int $variance = 0, array $averages = []) : Player
   {
+    # Get the ideal averages first to calculate variance from
+    if (empty($averages)) {
+      $averages['shooting'] = $squad->getIdealAverage('shooting');
+      $averages['skating'] = $squad->getIdealAverage('skating');
+      $averages['checking'] = $squad->getIdealAverage('checking');
+    }
+    # Identify whether or not the player's skillset is within the range of acceptance
     foreach ($players as $player) {
-      $checkShooting = (($player->shooting <= ($squad->getIdealAverage('shooting') + $variance)) && ($player->shooting >= ($squad->getIdealAverage('shooting') - $variance)));
-      $checkSkating = (($player->skating <= ($squad->getIdealAverage('skating') + $variance)) && ($player->skating >= ($squad->getIdealAverage('skating') - $variance)));
-      $checkChecking = (($player->checking <= ($squad->getIdealAverage('checking') + $variance)) && ($player->checking >= ($squad->getIdealAverage('checking') - $variance)));
+      $checkShooting = (($player->shooting <= ($averages['shooting'] + $variance)) && ($player->shooting >= ($averages['shooting'] - $variance)));
+      $checkSkating = (($player->skating <= ($averages['skating'] + $variance)) && ($player->skating >= ($averages['skating'] - $variance)));
+      $checkChecking = (($player->checking <= ($averages['checking'] + $variance)) && ($player->checking >= ($averages['checking'] - $variance)));
       if ($checkShooting && $checkSkating && $checkChecking) {
         return $player;
       }
     }
-    # When reached here, no player is applicable, so rerun with higher variance.
+    # When reached here, no player is applicable, so rerun with higher variance
     $variance += 2;
-    return $this->getBestMatchForSquad($squad, $players, $variance);
+    return $this->getBestMatchForSquad($squad, $players, $variance, $averages);
   }
 
   /**

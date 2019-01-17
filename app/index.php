@@ -6,7 +6,6 @@
   require_once('model/JSONProcessor.php');
   require_once('model/SquadValidator.php');
 
-  ini_set('display_errors', 1);
   session_start();
 
   # Object instantiation

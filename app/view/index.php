@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
   <link href="web/main.css" rel="stylesheet">
 </head>
+
 <body class="bg-pattern">
   <div class="container col-md-3 container-padding">
     <h1>Squad Maker</h1>
@@ -70,7 +71,7 @@
       <div class="panel-heading" style="background-color: <?php print_r($squad->teamColor); ?>">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php print_r($key); ?>"><?php print_r($squad->teamName); ?> Squad</a>
       </div>
-      <div id="collapse<?php print_r($key) ?>" class="panel-collapse collapse in">
+      <div id="collapse<?php print_r($key); ?>" class="panel-collapse collapse in">
         <div class="panel panel-body">
           <table class="table">
             <tr>
