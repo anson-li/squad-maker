@@ -18,12 +18,12 @@
   <div class='container col-md-3 container-padding'>
     <h1>Squad Maker</h1>
     <p>Let’s make a tournament!<br>Give me your squad count, and I’ll give you the perfect squad composition for any situation.</p>
-    <?php if (isset($error)) : ?>
+    <?php if (isset($error)): ?>
       <div class="alert alert-warning" role="alert">
         <?php print_r($error); ?>
       </div>
     <?php endif; ?>
-    <?php if (isset($success)) : ?>
+    <?php if (isset($success)): ?>
       <div class="alert alert-success" role="alert">
         <?php print_r($success); ?>
       </div>
@@ -39,7 +39,7 @@
     </form>
   </div> 
   <div class='container-fluid col-md-9 container-padding'>
-    <?php if (!empty($waitingList->players)) : ?>
+  <?php if (!empty($waitingList->players)): ?>
     <div class="panel panel-default">
       <div class="panel-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingList">Waiting List (<?php print_r($waitingPlayerCount); ?>)</a>
@@ -103,7 +103,7 @@
         </div>
       </div>
     </div>
-    <?php endforeach; ?>
+  <?php endforeach; ?>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

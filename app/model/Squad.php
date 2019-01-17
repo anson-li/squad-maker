@@ -5,19 +5,16 @@
  * it contains a list of players attached, the skill averages, the team name and the team color 
  * (used for differentiation between teams).
  */
-class Squad
-{
+class Squad {
 
     public $players, $idealAverage, $teamName, $teamColor = null;
 
     /**
      * Generates an empty Squad object, to fill with players.
-     *
-     * @param array  $idealAverage The ideal average skillset to make the squads with.
-     * @param string $teamName     The squad name.
+     * @param array  $idealAverage  The ideal average skillset to make the squads with.
+     * @param string $teamName The squad name.
      */
-    function __construct(array $idealAverage, string $teamName) 
-    {
+    function __construct(array $idealAverage, string $teamName) {
         $this->players = [];
         $this->idealAverage = $idealAverage;
         $this->teamName = $teamName;
@@ -27,7 +24,6 @@ class Squad
     /**
      * Generates a random team color.
      * We need team color to be a bright color, so we're forcing one primary color and two secondary (lighter) colors.
-     *
      * @return string Color in hexadecimal, eg. #ff0000
      */
     function generateRandomTeamColor() : string
@@ -41,11 +37,9 @@ class Squad
     
     /**
      * Adds a player to the squad's roster.
-     *
      * @param Player $player The player to add to the squad.
      */
-    function addPlayer(Player $player) 
-    {
+    function addPlayer(Player $player) {
         $this->players[] = $player;
     }
 
@@ -55,8 +49,7 @@ class Squad
      * However, if there are members in the squad, the function calculates what member 
      * would be most suitable to 'balance out' the team. Eg. If the squad has a higher amount of 'shooting'
      * skill, find a team member who is weaker in 'shooting'.
-     *
-     * @param  string $param The parameter to find the average for.
+     * @param string $param The parameter to find the average for.
      * @return int The ideal value for a player skill to be in that specific category.
      */
     function getIdealAverage(string $param) : int 
@@ -79,7 +72,6 @@ class Squad
 
     /**
      * Get the final averages of the squad, using only player skill.
-     *
      * @return array An array containing averages for all three player skills.
      */
     function getPlayerAverages() : array
