@@ -29,7 +29,7 @@
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       <div class="form-group">
         <label for="numSquads">Number of Squads</label>
-        <input type="number" class="form-control" id="numSquads" name="numSquads" value="3" min="2">
+        <input type="number" class="form-control" id="numSquads" name="numSquads" value="<?php print_r(count($squads)); ?>" min="2">
       </div>
       <input type="submit" class="btn btn-generate" name="action" value="Generate" /> &nbsp;
       <input type="submit" class="btn btn-reset" name="action" value="Reset" />  
